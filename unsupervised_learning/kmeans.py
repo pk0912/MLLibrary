@@ -179,8 +179,3 @@ class KMeans(object):
             except Exception as e:
                 print('ERROR : ' + str(e))
                 return None, None
-
-if __name__ == '__main__':
-    data = np.array([[1,2,5],[3,4,6],[9,6.0,7],[10,7,8]])
-    kmeans = KMeans(data, clusters_num=2, iterations=5, visualisation='pca')
-    print(kmeans.perform_task())
