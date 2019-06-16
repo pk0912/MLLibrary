@@ -95,16 +95,18 @@ class KMeans(object):
     def verify_user_inputs(self):
         # Verifying values of user input before feeding them into clustering method
         type_error_status = self.verify_user_inputs_type()
-        return type_error_status
-        if(not(self.visualisation == 'tsne' or self.visualisation == 'pca')):
-            return 3
-        if(self.data.shape[0] <= 1):
-            return 4
-        if(self.clusters_num <= 1):
-            return 5
-        if(self.data.shape[0] <= self.clusters_num):
-            return 6
-        return 7
+        if(type_error_status != -1):
+            return type_error_status
+        else:
+            if(not(self.visualisation == 'tsne' or self.visualisation == 'pca')):
+                return 3
+            if(self.data.shape[0] <= 1):
+                return 4
+            if(self.clusters_num <= 1):
+                return 5
+            if(self.data.shape[0] <= self.clusters_num):
+                return 6
+            return 7
 
     def initialization(self):
         # randomly initializing old_centroid list with values from dataset
